@@ -5,8 +5,355 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quiz_C_Sharp_Prog_IV_Sem_IV"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="450">
     <Grid>
-        
+        <Grid 
+            Grid.Row="0"
+            Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions >
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+            Grid.Row="0"
+            FontSize="35"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Text="Witaj w naszej aplikacji!"
+            />
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                Grid.Row="0"
+                FontSize="25"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Text="Podaj swój nick"
+                />
+
+                <TextBox
+                Grid.Row="1"
+                Margin="10, 0"
+                FontSize="30"
+                VerticalAlignment="Center"
+                TextAlignment="Center"
+                Text="Nick" 
+                />
+            </Grid>
+
+            <ListBox 
+            Grid.Row="2"
+            Margin="10"
+            Padding="10"
+            FontSize="20"
+            >
+                <ListBoxItem Content="Placeholder" />
+            </ListBox>
+
+            <Button
+            Grid.Row="3"
+            MaxWidth="250"
+            MaxHeight="75"
+            Content="Start Quiz"
+            FontSize="30"
+            />
+
+            <Button
+            Grid.Row="4"
+            MaxWidth="200"
+            MaxHeight="50"
+            Content="Wyjdź z programu"
+            FontSize="20"
+            />
+        </Grid>
+
+        <Grid 
+            Grid.Row="0" 
+            Name="AddView"
+            Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions >
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Name="QuizName"
+                Grid.Row="0"
+                Width="350"
+                MaxWidth="350"
+                MaxHeight="75"
+                FontSize="30"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Text="Nazwa quizu"
+                Margin="25,0,0,0"
+                TextWrapping="Wrap"
+                />
+
+            <TextBlock
+                Name="QuestionText"
+                Grid.Row="1"
+                Width="350"
+                MaxWidth="350"
+                MaxHeight="75"
+                FontSize="25"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Text="Treść pytania"
+                Margin="25,0,0,0"
+                TextWrapping="Wrap"
+                />
+
+            <StackPanel 
+                Grid.Row="2" 
+                Orientation="Horizontal" 
+                HorizontalAlignment="Center">
+
+                <TextBlock
+                    Name="AnswerA"
+                    Width="350"
+                    MaxWidth="350"
+                    MaxHeight="75"
+                    Text="Odpowiedź A"
+                    FontSize="20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    TextWrapping="Wrap"
+                    Margin="0,0,20,0"
+                    />
+
+                <CheckBox
+                    Name="IsRightA"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    />
+            </StackPanel>
+
+            <StackPanel 
+                Grid.Row="3" 
+                Orientation="Horizontal" 
+                HorizontalAlignment="Center">
+
+                <TextBlock
+                    Name="AnswerB"
+                    Width="350"
+                    MaxWidth="350"
+                    MaxHeight="75"
+                    Text="Odpowiedź B"
+                    FontSize="20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    TextWrapping="Wrap"
+                    Margin="0,0,20,0"
+                    />
+
+                <CheckBox
+                    Name="IsRightB"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    />
+            </StackPanel>
+
+            <StackPanel 
+                Grid.Row="4" 
+                Orientation="Horizontal" 
+                HorizontalAlignment="Center">
+
+                <TextBlock
+                    Name="AnswerC"
+                    Width="350"
+                    MaxWidth="350"
+                    MaxHeight="75"
+                    Text="Odpowiedź C"
+                    FontSize="20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    TextWrapping="Wrap"
+                    Margin="0,0,20,0"
+                    />
+
+                <CheckBox
+                    Name="IsRightC"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    />
+            </StackPanel>
+
+            <StackPanel 
+                Grid.Row="5" 
+                Orientation="Horizontal" 
+                HorizontalAlignment="Center">
+
+                <TextBlock
+                    Name="AnswerD"
+                    Width="350"
+                    MaxWidth="350"
+                    MaxHeight="75"
+                    Text="Odpowiedź D"
+                    FontSize="20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    TextWrapping="Wrap"
+                    Margin="0,0,20,0"
+                    />
+
+                <CheckBox
+                    Name="IsRightD"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    />
+            </StackPanel>
+
+            <StackPanel 
+                Grid.Row="6" 
+                Orientation="Horizontal" 
+                HorizontalAlignment="Center">
+                <Button
+                    Width="100"
+                    Height="45"
+                    Content="Wstecz"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="25"
+                    Click="PreviousQuestion_ButtonClick"
+                    />
+
+                <Button
+                    Width="100"
+                    Height="45"
+                    Content="Dalej"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    FontSize="25"
+                    Click="NextQuestion_ButtonClick"
+                    />
+            </StackPanel>
+
+            <Button
+                Grid.Row="7"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,30"
+                MaxWidth="200"
+                MaxHeight="50"
+                Content="Wróć do menu"
+                FontSize="20"
+                Click="GoToMenu_ButtonClick"
+                />
+        </Grid>
+
+        <Grid
+            Grid.Row="0"
+            Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+            Grid.Row="0"
+            FontSize="30"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Text="\nick\, ukończyłeś nasz quiz:"
+            />
+
+            <TextBlock
+            Grid.Row="1"
+            FontSize="30"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Text="\tytuł\"
+            />
+
+            <TextBlock
+            Grid.Row="2"
+            FontSize="30"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Text="Z wynikiem:"
+            />
+
+            <TextBlock
+            Grid.Row="3"
+            FontSize="30"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Text="\x\ na \y\ puntków"
+            />
+
+            <Button
+            Grid.Row="4"
+            MaxWidth="175"
+            MaxHeight="40"
+            Content="Szczegóły"
+            FontSize="25"
+            />
+
+            <ListBox 
+            Grid.Row="5"
+            Margin="10"
+            Padding="10"
+            FontSize="20"
+            HorizontalContentAlignment="Stretch"
+            >
+                <ListBoxItem Content="Pytanie 1 - poprawne"/>
+                <Expander IsExpanded="False" Header="Pytanie 2 - błędne">
+                    <TextBlock Text="Poprawne odpowiedzi: 1 2 3"/>
+                </Expander>
+            </ListBox>
+
+            <!-- Można napisać do tego klase która by to ostylowała i wstawiać tam odpowiednie dane -->
+            <!--<StackPanel
+            Grid.Row="5"
+            Margin="10"
+            >
+            <TextBlock Text="Pytanie 1 - poprawnie"/>
+            <Expander IsExpanded="False" Header="Pytanie 2 - błędne">
+                <TextBlock Text="Poprawne odpowiedzi: 1 2 3"/>
+            </Expander>
+            <TextBlock Text="Pytanie 3 - poprawnie"/>
+        </StackPanel>-->
+
+            <Button
+            Grid.Row="6"
+            MaxWidth="150"
+            MaxHeight="35"
+            Content="Powrót do menu"
+            FontSize="15"
+            />
+        </Grid>
     </Grid>
 </Window>
