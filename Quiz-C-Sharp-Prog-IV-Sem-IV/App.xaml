@@ -1,0 +1,9 @@
+﻿<Application x:Class="Quiz_C_Sharp_Prog_IV_Sem_IV.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Quiz_C_Sharp_Prog_IV_Sem_IV"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
