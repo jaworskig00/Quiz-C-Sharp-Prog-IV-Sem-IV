@@ -228,31 +228,16 @@
                     />
             </StackPanel>
 
-            <StackPanel 
-                Grid.Row="6" 
-                Orientation="Horizontal" 
-                HorizontalAlignment="Center">
-                <Button
-                    Width="100"
-                    Height="45"
-                    Content="Wstecz"
-                    Margin="0,0,10,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    FontSize="25"
-                    Click="PreviousQuestion_ButtonClick"
-                    />
-
-                <Button
-                    Width="100"
-                    Height="45"
-                    Content="Dalej"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    FontSize="25"
-                    Click="NextQuestion_ButtonClick"
-                    />
-            </StackPanel>
+            <Button
+                Grid.Row="6"
+                Width="100"
+                Height="45"
+                Content="Dalej"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="25"
+                Click="NextQuestion_ButtonClick"
+                />
 
             <Button
                 Grid.Row="7"
