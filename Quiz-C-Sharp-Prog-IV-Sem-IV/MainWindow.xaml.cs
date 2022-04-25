@@ -24,5 +24,45 @@ namespace Quiz_C_Sharp_Prog_IV_Sem_IV
         {
             InitializeComponent();
         }
+
+        #region NAWIGACJA
+
+        // 1. MenuView
+        private void StartQuiz_ButtonClick(object sender, RoutedEventArgs e)
+        {
+            MenuView.Visibility = Visibility.Collapsed;
+            QuizView.Visibility = Visibility.Visible;
+            SummaryView.Visibility = Visibility.Collapsed;
+        }
+
+        private void Exit_ButtonClik(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        // 2. QuizView and SummaryView
+        private void GoToMenu_ButtonClick(object sender, RoutedEventArgs e)
+        {
+            MenuView.Visibility = Visibility.Visible;
+            QuizView.Visibility = Visibility.Collapsed;
+            SummaryView.Visibility = Visibility.Collapsed;
+        }
+
+        #endregion
+
+        private void PreviousQuestion_ButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NextQuestion_ButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

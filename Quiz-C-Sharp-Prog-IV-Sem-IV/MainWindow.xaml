@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quiz_C_Sharp_Prog_IV_Sem_IV"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="450">
+        Title="MainWindow" Height="800" Width="450" ResizeMode="NoResize">
     <Grid>
         <Grid 
+            Name="MenuView"
             Grid.Row="0"
             Visibility="Visible">
             <Grid.ColumnDefinitions>
@@ -23,66 +24,66 @@
             </Grid.RowDefinitions>
 
             <TextBlock
-            Grid.Row="0"
-            FontSize="35"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Text="Witaj w naszej aplikacji!"
-            />
-
-            <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="2*"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock
                 Grid.Row="0"
-                FontSize="25"
+                FontSize="35"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-                Text="Podaj swój nick"
+                Text="Witaj w naszej aplikacji!"
                 />
+
+            <StackPanel
+                Grid.Row="1">
+                <TextBlock
+                    FontSize="25"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Text="Podaj swój nick"
+                    />
 
                 <TextBox
-                Grid.Row="1"
-                Margin="10, 0"
-                FontSize="30"
-                VerticalAlignment="Center"
-                TextAlignment="Center"
-                Text="Nick" 
-                />
-            </Grid>
+                    Name="NickText"
+                    Margin="10, 0"
+                    FontSize="30"
+                    VerticalAlignment="Center"
+                    TextAlignment="Center"
+                    Text="Nick" 
+                    />
+            </StackPanel>
 
             <ListBox 
-            Grid.Row="2"
-            Margin="10"
-            Padding="10"
-            FontSize="20"
-            >
+                Name="QuizListBox"
+                Grid.Row="2"
+                Margin="10"
+                Padding="10"
+                FontSize="20"
+                >
                 <ListBoxItem Content="Placeholder" />
             </ListBox>
 
             <Button
-            Grid.Row="3"
-            MaxWidth="250"
-            MaxHeight="75"
-            Content="Start Quiz"
-            FontSize="30"
-            />
+                Grid.Row="3"
+                MaxWidth="250"
+                MaxHeight="75"
+                Content="Start Quiz"
+                FontSize="30"
+                Click="StartQuiz_ButtonClick"
+                />
 
             <Button
-            Grid.Row="4"
-            MaxWidth="200"
-            MaxHeight="50"
-            Content="Wyjdź z programu"
-            FontSize="20"
-            />
+                Grid.Row="4"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,30"
+                MaxWidth="200"
+                MaxHeight="50"
+                Content="Wróć do menu"
+                FontSize="20"
+                Click="Exit_ButtonClick"
+                />
         </Grid>
 
         <Grid 
             Grid.Row="0" 
-            Name="AddView"
+            Name="QuizView"
             Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -266,6 +267,7 @@
         </Grid>
 
         <Grid
+            Name="SummaryView"
             Grid.Row="0"
             Visibility="Collapsed">
             <Grid.ColumnDefinitions>
@@ -348,12 +350,15 @@
         </StackPanel>-->
 
             <Button
-            Grid.Row="6"
-            MaxWidth="150"
-            MaxHeight="35"
-            Content="Powrót do menu"
-            FontSize="15"
-            />
+                Grid.Row="6"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,30"
+                MaxWidth="200"
+                MaxHeight="50"
+                Content="Wróć do menu"
+                FontSize="20"
+                Click="GoToMenu_ButtonClick"
+                />
         </Grid>
     </Grid>
 </Window>
