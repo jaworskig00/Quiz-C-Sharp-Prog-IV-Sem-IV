@@ -27,6 +27,7 @@ namespace Quiz_C_Sharp_Prog_IV_Sem_IV
 
         string previousLocation;
         string quizOldName;
+        string nick;
 
         List<Quiz> quizzes;
         List<Answer> answers;
@@ -41,6 +42,7 @@ namespace Quiz_C_Sharp_Prog_IV_Sem_IV
 
             previousLocation = "";
             quizOldName = "";
+            nick = "";
 
             quizzes = new List<Quiz>();
             answers = new List<Answer>();
@@ -58,6 +60,23 @@ namespace Quiz_C_Sharp_Prog_IV_Sem_IV
             MenuView.Visibility = Visibility.Collapsed;
             QuizView.Visibility = Visibility.Visible;
             SummaryView.Visibility = Visibility.Collapsed;
+
+            nick = NickText.Text;
+
+            questions.Clear();
+            questionIndex = 0;
+
+            foreach (Question question in quizzes[QuizListBox.SelectedIndex].Questions)
+            {
+                questions.Add(question);
+            }
+
+            QuizName.Text = quizzes[QuizListBox.SelectedIndex].QuizName;
+            QuestionText.Text = questions[questionIndex].QuestionText;
+            AnswerA.Text = questions[questionIndex].Answers[0].AnswerText;
+            AnswerB.Text = questions[questionIndex].Answers[1].AnswerText;
+            AnswerC.Text = questions[questionIndex].Answers[2].AnswerText;
+            AnswerD.Text = questions[questionIndex].Answers[3].AnswerText;
         }
 
         private void Exit_ButtonClick(object sender, RoutedEventArgs e)
@@ -73,16 +92,45 @@ namespace Quiz_C_Sharp_Prog_IV_Sem_IV
             SummaryView.Visibility = Visibility.Collapsed;
         }
 
-        #endregion
-
-        private void PreviousQuestion_ButtonClick(object sender, RoutedEventArgs e)
+        public void GoToSummaryView()
         {
+            MenuView.Visibility = Visibility.Collapsed;
+            QuizView.Visibility = Visibility.Collapsed;
+            SummaryView.Visibility = Visibility.Visible;
 
+            //logika
         }
+
+        #endregion
 
         private void NextQuestion_ButtonClick(object sender, RoutedEventArgs e)
         {
+            questionIndex += 1;
 
+            if (questionIndex >= questions.Count())
+            {
+                Console.WriteLine(questions.Count());
+                GoToSummaryView();
+            }
+            else
+            {
+                if (questions.Any(q => q.QuestionNumber == questionIndex))
+                {
+                    QuestionText.Text = questions[questionIndex].QuestionText;
+                    AnswerA.Text = questions[questionIndex].Answers[0].AnswerText;
+                    AnswerB.Text = questions[questionIndex].Answers[1].AnswerText;
+                    AnswerC.Text = questions[questionIndex].Answers[2].AnswerText;
+                    AnswerD.Text = questions[questionIndex].Answers[3].AnswerText;
+                    IsRightA.IsChecked = false;
+                    IsRightB.IsChecked = false;
+                    IsRightC.IsChecked = false;
+                    IsRightD.IsChecked = false;
+                }
+                else
+                {
+                    MessageBox.Show("Error: No More Questions");
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
