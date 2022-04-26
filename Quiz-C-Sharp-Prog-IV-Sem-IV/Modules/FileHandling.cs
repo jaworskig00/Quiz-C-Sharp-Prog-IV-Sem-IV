@@ -17,14 +17,14 @@ namespace QuizGenerator_programowanie_IV.Modules
             string json = JsonSerializer.Serialize(quiz);
 
             //C:\\Users\\Kiepson\\Desktop\\QUIZY\\ - scieżka Wojtka
-            File.WriteAllText($"C:\\Users\\2000g\\OneDrive\\Pulpit\\QUIZY\\{quiz.QuizName}.json", cezar.EncryptText(json));
+            File.WriteAllText($"C:\\Users\\Kiepson\\Desktop\\QUIZY\\{quiz.QuizName}.json", cezar.EncryptText(json));
         }
 
         public List<Quiz> ReadFromFile()
         {
             quizzes.Clear();
             //C:\\Users\\Kiepson\\Desktop\\QUIZY\\ - scieżka Wojtka
-            string[] files = Directory.GetFiles("C:\\Users\\2000g\\OneDrive\\Pulpit\\QUIZY\\");
+            string[] files = Directory.GetFiles("C:\\Users\\Kiepson\\Desktop\\QUIZY\\");
 
             foreach (string file in files)
             {

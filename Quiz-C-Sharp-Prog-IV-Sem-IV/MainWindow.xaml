@@ -125,19 +125,23 @@
                     />
                 </StackPanel>
 
-            <TextBlock
-                Name="QuestionText"
+            <Viewbox 
                 Grid.Row="1"
-                Width="350"
-                MaxWidth="350"
-                MaxHeight="75"
-                FontSize="25"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Text="Treść pytania"
                 Margin="25,0,0,0"
+                Width="350"
+                MinWidth="350"
+                Stretch="Uniform"
+                StretchDirection="DownOnly"
+                >
+                <TextBlock
+                Name="QuestionText"                                
+                Width="350"
+                FontSize="25"                                          
+                Text="Text pytania"
                 TextWrapping="Wrap"
                 />
+            </Viewbox>
 
             <StackPanel 
                 Grid.Row="2" 
