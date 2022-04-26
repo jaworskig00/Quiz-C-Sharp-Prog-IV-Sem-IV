@@ -100,19 +100,30 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock
-                Name="QuizName"
+            <StackPanel
                 Grid.Row="0"
-                Width="350"
-                MaxWidth="350"
-                MaxHeight="75"
-                FontSize="30"
-                HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                Text="Nazwa quizu"
-                Margin="25,0,0,0"
-                TextWrapping="Wrap"
-                />
+                HorizontalAlignment="Left"
+                Margin="25,48,0,48.4" Width="389"
+                >
+                <TextBlock
+                    Name="QuizTimer"
+                    HorizontalAlignment="Right"
+                    FontSize="20"
+                    Text="00:00:00"
+                    />
+                <TextBlock
+                    Name="QuizName"
+                    MinWidth="350"
+                    MaxWidth="350"
+                    MaxHeight="75"
+                    FontSize="30"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Text="Nazwa quizu"
+                    TextWrapping="Wrap"
+                    />
+                </StackPanel>
 
             <TextBlock
                 Name="QuestionText"
@@ -229,6 +240,7 @@
             </StackPanel>
 
             <Button
+                Name="NextQuestionButton"
                 Grid.Row="6"
                 Width="100"
                 Height="45"
@@ -260,7 +272,7 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -270,36 +282,41 @@
             </Grid.RowDefinitions>
 
             <TextBlock
+            Name="WelcomeText"
             Grid.Row="0"
             FontSize="30"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Text="\nick\, ukończyłeś nasz quiz:"
+                TextWrapping="Wrap"
             />
 
             <TextBlock
-            Grid.Row="1"
-            FontSize="30"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Text="\tytuł\"
-            />
+                Name="Title"
+                Grid.Row="1"
+                FontSize="30"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Text="\tytuł\"
+                />
 
             <TextBlock
-            Grid.Row="2"
-            FontSize="30"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Text="Z wynikiem:"
-            />
+                Name="CorrectQuestions"
+                Grid.Row="2"
+                FontSize="30"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Text="x/y poprawnych odpowiedzi"
+                />
 
             <TextBlock
-            Grid.Row="3"
-            FontSize="30"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Text="\x\ na \y\ puntków"
-            />
+                Name="Score"
+                Grid.Row="3"
+                FontSize="30"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Text="x punktów"
+                />
 
             <Button
             Grid.Row="4"
@@ -307,32 +324,19 @@
             MaxHeight="40"
             Content="Szczegóły"
             FontSize="25"
+                Click="ShowMore_ButtonClick"
             />
 
             <ListBox 
-            Grid.Row="5"
-            Margin="10"
-            Padding="10"
-            FontSize="20"
-            HorizontalContentAlignment="Stretch"
-            >
-                <ListBoxItem Content="Pytanie 1 - poprawne"/>
-                <Expander IsExpanded="False" Header="Pytanie 2 - błędne">
-                    <TextBlock Text="Poprawne odpowiedzi: 1 2 3"/>
-                </Expander>
+                Name="DetailsListBox"
+                Visibility="Collapsed"
+                Grid.Row="5"
+                Margin="10"
+                Padding="10"
+                FontSize="20"
+                HorizontalContentAlignment="Stretch"
+                >
             </ListBox>
-
-            <!-- Można napisać do tego klase która by to ostylowała i wstawiać tam odpowiednie dane -->
-            <!--<StackPanel
-            Grid.Row="5"
-            Margin="10"
-            >
-            <TextBlock Text="Pytanie 1 - poprawnie"/>
-            <Expander IsExpanded="False" Header="Pytanie 2 - błędne">
-                <TextBlock Text="Poprawne odpowiedzi: 1 2 3"/>
-            </Expander>
-            <TextBlock Text="Pytanie 3 - poprawnie"/>
-        </StackPanel>-->
 
             <Button
                 Grid.Row="6"
