@@ -12,19 +12,19 @@ namespace QuizGenerator_programowanie_IV.Modules
     {
         CezarEncryption cezar = new CezarEncryption();
         public List<Quiz> quizzes = new List<Quiz>();
+        string userDocumentsPath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public void SaveToFile(Quiz quiz)
         {
             string json = JsonSerializer.Serialize(quiz);
 
-            //C:\\Users\\Kiepson\\Desktop\\QUIZY\\ - scieżka Wojtka
-            File.WriteAllText($"C:\\Users\\Kiepson\\Desktop\\QUIZY\\{quiz.QuizName}.json", cezar.EncryptText(json));
+            File.WriteAllText($"{userDocumentsPath}\\QUIZY{ quiz.QuizName}.json", cezar.EncryptText(json));
         }
 
         public List<Quiz> ReadFromFile()
         {
             quizzes.Clear();
             //C:\\Users\\Kiepson\\Desktop\\QUIZY\\ - scieżka Wojtka
-            string[] files = Directory.GetFiles("C:\\Users\\Kiepson\\Desktop\\QUIZY\\");
+            string[] files = Directory.GetFiles($"{userDocumentsPath}\\QUIZY");
 
             foreach (string file in files)
             {

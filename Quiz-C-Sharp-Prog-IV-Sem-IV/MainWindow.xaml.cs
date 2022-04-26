@@ -21,15 +21,12 @@ namespace Quiz_C_Sharp_Prog_IV_Sem_IV
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
-     
-    // TODO:
-    // jak Wojtek skonczy timer:
-    // liczenie i wyswietlanie wyniku
-    // wyswietlanie pytan w list boxie
 
     public partial class MainWindow : Window
     {
         FileHandling fileHandle;
+
+        string userDocumentsPath;
 
         List<Quiz> quizzes;
         List<Question> questions;
@@ -47,6 +44,13 @@ namespace Quiz_C_Sharp_Prog_IV_Sem_IV
         {
             InitializeComponent();
             fileHandle = new FileHandling();
+
+            userDocumentsPath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            if (!Directory.Exists($"{userDocumentsPath}\\QUIZY"))
+            {
+                Directory.CreateDirectory($"{userDocumentsPath}\\QUIZY");
+            }
 
             quizzes = new List<Quiz>();
             questions = new List<Question>();
@@ -232,13 +236,7 @@ namespace Quiz_C_Sharp_Prog_IV_Sem_IV
                 }
             }
 
-            Console.WriteLine("poprawnie podane: " + correctAnswers);
-            Console.WriteLine("faktycznie poprawne: " + actualCorrectAnswers);
-            Console.WriteLine("czas: " + timeLeft);
-            Console.WriteLine("czas calkowity: " + questions[questionIndex].Time);
-            Console.WriteLine("pytanie cos tam: " + correctAnswers / actualCorrectAnswers * timeLeft / Convert.ToDouble(questions[questionIndex].Time) * 100);
             questionScore.Add(correctAnswers / actualCorrectAnswers * timeLeft / Convert.ToDouble(questions[questionIndex].Time) * 100);
-            // określić max pkt 
             
             questionIndex += 1;
             
@@ -298,7 +296,6 @@ namespace Quiz_C_Sharp_Prog_IV_Sem_IV
 
         public void UpdateTimer(Object obj, EventArgs e)
         {
-            //int timerLength = questions[questionIndex].Time.ToString().Length;
             int timerTemp = Convert.ToInt32(QuizTimer.Text.Substring(QuizTimer.Text.Length - 4 - questions[questionIndex].Time.ToString().Length, questions[questionIndex].Time.ToString().Length)) - 1;
 
             if (timerTemp <= 0)
